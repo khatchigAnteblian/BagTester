@@ -11,4 +11,74 @@ package bagtester;
  */
 public class Binder {
     
+    public static int binderWeight = 150; // In grams
+    public static double paperWeight = 5.0; // In grams
+    
+    private String label;
+    private String colour;
+    private int numOfSheets;
+    
+    public Binder(String lbl, String clr, int num) {
+        this.label = lbl;
+        this.colour = clr;
+        this.numOfSheets = num;
+    }
+    
+    public void addSheet(int num) {
+        this.setNumOfSheets(this.getNumOfSheets() + num);
+    }
+    
+    public double getTotalWeight() {
+        return binderWeight + (this.getNumOfSheets() * paperWeight);
+    }
+    
+    public Binder compareWeight(Binder other) {
+        return this.getTotalWeight() > other.getTotalWeight() ? this : other;
+    }
+    
+    public String toString() {
+        return "Label: " + this.getLabel() + ", Colour: " + this.getColour() + ", Number of sheets: " + this.getNumOfSheets();
+    }
+
+    /**
+     * @return the label
+     */
+    public String getLabel() {
+        return label;
+    }
+
+    /**
+     * @param label the label to set
+     */
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    /**
+     * @return the colour
+     */
+    public String getColour() {
+        return colour;
+    }
+
+    /**
+     * @param colour the colour to set
+     */
+    public void setColour(String colour) {
+        this.colour = colour;
+    }
+
+    /**
+     * @return the numOfSheets
+     */
+    public int getNumOfSheets() {
+        return numOfSheets;
+    }
+
+    /**
+     * @param numOfSheets the numOfSheets to set
+     */
+    public void setNumOfSheets(int numOfSheets) {
+        this.numOfSheets = numOfSheets;
+    }
 }
