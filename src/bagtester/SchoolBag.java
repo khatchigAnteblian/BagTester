@@ -27,4 +27,24 @@ public class SchoolBag {
         this.binders[0] = new Binder(lbl1, clr1, num1);
         this.binders[1] = new Binder(lbl2, clr2, num2);
     }
+
+    public void addSheet(int binderID, int num) {
+        this.binders[binderID - 1].addSheet(num);
+    }
+    
+    public void removeSheet(int binderID, int num) {
+        this.binders[binderID - 1].addSheet(-num);
+    }
+
+    public double getBinderWeight(int binderID) {
+        return this.binders[binderID - 1].getTotalWeight();
+    }
+
+    public double getBagWeight() {
+        return this.binders[0].getTotalWeight() + this.binders[1].getTotalWeight();
+    }
+
+    public String toString() {
+        return "Style: " + this.style + "\nBinder 1:\n\t" + this.binders[0].toString() + "\nBinder 2:\n\t" + this.binders[1].toString() + "\n";
+    }
 }
