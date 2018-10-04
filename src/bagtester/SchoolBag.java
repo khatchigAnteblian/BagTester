@@ -33,7 +33,7 @@ public class SchoolBag {
     }
     
     public void removeSheet(int binderID, int num) {
-        this.binders[binderID - 1].addSheet(-num);
+        this.binders[binderID - 1].removeSheet(num);
     }
 
     public double getBinderWeight(int binderID) {
