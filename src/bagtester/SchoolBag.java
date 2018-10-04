@@ -47,4 +47,20 @@ public class SchoolBag {
     public String toString() {
         return "Style: " + this.style + "\nBinder 1:\n\t" + this.binders[0].toString() + "\nBinder 2:\n\t" + this.binders[1].toString() + "\n";
     }
+
+    public String getStyle() {
+        return this.style;
+    }
+
+    public void setStyle(String style) {
+        this.style = style;
+    }
+
+    public Binder getBinder(int binderID) {
+        return this.binders[binderID - 1];
+    }
+
+    public void setBinder(int binderID, Binder binder) {
+        this.binders[binderID - 1] = binder;
+    }
 }
