@@ -25,6 +25,7 @@ public class Binder {
     }
     
     public void addSheet(int num) {
+        System.out.println("Added " + num + " sheets.\n");
         this.setNumOfSheets(this.getNumOfSheets() + num);
     }
 
@@ -32,7 +33,7 @@ public class Binder {
         if (this.numOfSheets == 0) {
             System.out.println("No sheets in binder!\n");
         } else if (num >= this.numOfSheets) {
-            System.out.println("Removed " + this.numOfSheets + " sheets.\n")
+            System.out.println("Removed " + this.numOfSheets + " sheets.\n");
             this.numOfSheets = 0;
         } else {
             System.out.println("Removed " + num + " sheets.\n");
