@@ -41,7 +41,7 @@ public class SchoolBag {
     }
 
     public double getBagWeight() {
-        return this.binders[0].getTotalWeight() + this.binders[1].getTotalWeight();
+        return bagWeight + this.binders[0].getTotalWeight() + this.binders[1].getTotalWeight();
     }
 
     public String toString() {
