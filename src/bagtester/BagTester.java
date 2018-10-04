@@ -9,13 +9,64 @@ package bagtester;
  *
  * @author 345983704
  */
+import java.util.Scanner;
 public class BagTester {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner sc = new Scanner(System.in);
+        String[] styles = new String[2];
+        String[] labels = new String[2];
+        String[] colours = new String[2];
+        int[] sheets = new int[2];
+        SchoolBag[] bags = new SchoolBag[2];
+
+        for (int i=0; i<2; i++) {
+            System.out.print("Enter style for bag " + (i + 1) + ": ");
+            styles[i] = sc.nextLine();
+            for (int j=0; j<2; j++) {
+                System.out.print("Enter label for binder " + (j + 1) + " in bag " + (i + 1) + ": " );
+                labels[j] = sc.nextLine();
+                System.out.print("Enter colour for binder " + (j + 1) + " in bag " + (i + 1) + ": " );
+                colours[j] = sc.nextLine();
+                System.out.print("Enter number of sheets for binder " + (j + 1) + " in bag " + (i + 1) + ": " );
+                sheets[j] = sc.nextInt();
+                sc.nextLine();
+                System.out.println();
+            }
+            Binder b1 = new Binder(labels[0], colours[0], sheets[0]);
+            Binder b2 = new Binder(labels[1], colours[1], sheets[1]);
+            bags[i] = new SchoolBag(styles[i], b1, b2);
+        }
+
+        while (true) {
+            System.out.println("\nThese are your bags:\n\n" + bags[0].toString() + "\n" + bags[1].toString() + "\n");
+            int bag, binder, num;
+            char choice;
+            System.out.print("Which bag do you want (1, 2)? ");
+            bag = sc.nextInt();
+            System.out.print("Which binder do you want (1, 2)? ");
+            binder = sc.nextInt();
+            System.out.print("Do you want to add or remove sheets (a, r)? ");
+            choice = sc.next().charAt(0);
+            System.out.print("How many sheets? ");
+            num = sc.nextInt();
+
+            if (bag == -1 || binder == -1 || num == -1) {
+                break;
+            }
+
+            if (choice == 'r') {
+                bags[bag - 1].removeSheet(binder, num);
+            } else {
+                bags[bag - 1].addSheet(binder, num);
+            }
+        }
+
+        System.out.println("\nGoodbye!");
+
     }
     
 }
