@@ -27,6 +27,18 @@ public class Binder {
     public void addSheet(int num) {
         this.setNumOfSheets(this.getNumOfSheets() + num);
     }
+
+    public void removeSheet(int num) {
+        if (this.numOfSheets == 0) {
+            System.out.println("No sheets in binder!\n");
+        } else if (num >= this.numOfSheets) {
+            System.out.println("Removed " + this.numOfSheets + " sheets.\n")
+            this.numOfSheets = 0;
+        } else {
+            System.out.println("Removed " + num + " sheets.\n");
+            this.numOfSheets -= num;
+        }
+    }
     
     public double getTotalWeight() {
         return binderWeight + (this.getNumOfSheets() * paperWeight);
